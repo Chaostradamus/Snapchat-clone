@@ -16,6 +16,7 @@ import { v4 as uuid } from "uuid";
 import { db, storage } from "./firebase";
 import firebase from "firebase";
 
+
 function Preview() {
   const cameraImage = useSelector(selectCameraImage);
   const history = useHistory();
@@ -54,7 +55,9 @@ function Preview() {
               username: "Chao",
               read: false,
               // profilePic
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
+            history.replace("/chats");
           });
       }
     );
